@@ -1,20 +1,27 @@
 import solution, { Response } from '@/index';
-import postItem, { isNumber } from '@/api/postItem';
+import postItem, { countTodos } from '@/api/postItem';
 
 const postItemMock = postItem as jest.Mock;
-const isNumberMock = isNumber as jest.Mock;
+const countTodosMock = countTodos as jest.Mock;
 
 jest.mock('@/api/postItem');
 
 describe(solution, () => {
-  it('should return the sum', async () => {
-    postItemMock.mockReturnValue(9);
-    isNumberMock.mockReturnValue(false);
+  it('should add a todo and return it\'s count', async () => {
+    postItemMock.mockReturnValue({  title: 'I\'m a mock value!' });
+    countTodosMock.mockReturnValue(1000);
 
-    const result: Response = await solution(3);
-    expect(result.value).toBe(9);
-    expect(result.isNumber).toBe(false);
-    expect(postItem).toHaveBeenCalledWith(3);
-    expect(isNumber).toHaveBeenCalledWith(7);
+    const result: Response = await solution('I\'m a real value!');
+    expect(result.todos.length).toBe(1);
+    expect(result.todos).toMatchObject([
+      {
+        title: 'I\'m a mock value!',
+      }
+    ]);
+    expect(result.count).toBe(1000);
+    expect(postItem).toHaveBeenCalledWith(expect.objectContaining({ title: 'I\'m a real value!' }));
+    expect(countTodos).toHaveBeenCalledWith(
+      expect.arrayContaining([ expect.objectContaining({ title: 'I\'m a mock value!', }) ])
+    );
   });
 });

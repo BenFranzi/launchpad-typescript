@@ -1,14 +1,13 @@
-import postItem, { isNumber } from '@/api/postItem';
-
+import postItem, { countTodos, Todo } from '@/api/postItem';
 
 export type Response = {
-  value: number;
-  isNumber: boolean;
+  todos: Todo[];
+  count: number;
 }
 
-export default async function double(value: number): Promise<Response> {
-  const result = await postItem(value);
-  const other = isNumber(value + 4);
-  return { value: result, isNumber: other };
+export default async function addTodo(title: string): Promise<Response> {
+  const todo = await postItem({ title });
+  const todos = [todo];
+  const count = countTodos(todos);
+  return { todos, count };
 }
-console.log('The current time is ', new Date());

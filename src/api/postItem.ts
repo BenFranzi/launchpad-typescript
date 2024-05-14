@@ -1,16 +1,16 @@
-export default async function postItem(value: number): Promise<number> {
+export type Todo = {
+  title: string;
+}
+
+export default async function postTodo(item: Todo): Promise<Todo> {
   const response = await fetch('https://dummyjson.com/products/add', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      title: 'Pencil',
-    })
+    body: JSON.stringify(item),
   });
-  const blob = await response.json();
-  console.log(blob);
-  return value * 2;
+  return response.json();
 }
 
-export function isNumber(value: number): boolean {
-  return !Number.isNaN(value);
+export function countTodos(todos: Todo[]): number {
+  return todos.length;
 }
