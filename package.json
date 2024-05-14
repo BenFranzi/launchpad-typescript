@@ -9,6 +9,9 @@
     "dev": "node --loader ts-node/esm -r tsconfig-paths/register src/index.ts",
     "dev2": "ts-node -r tsconfig-paths/register ./src/index.ts",
     "dev3": "node --loader ts-node/esm -r tsconfig-paths/register src/index.ts --import 'data:text/javascript,import { register } from \"node:module\"; import { pathToFileURL } from \"node:url\"; register(\"ts-node/esm\", pathToFileURL(\"./\"));'",
+    "dev4": "ts-node src/index.ts",
+    "dev5": "ts-node --compiler-options '{\\\"module\\\": \\\"commonjs\\\"}' src/index.ts",
+    "dev6": "tsx src/index.ts",
     "test": "jest"
   },
   "devDependencies": {
@@ -22,6 +25,7 @@
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.10.2",
     "typescript": "~4.7.0"
   }
 }

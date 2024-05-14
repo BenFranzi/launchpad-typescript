@@ -1,5 +1,4 @@
-// import postItem, { isNumber } from './src/api/postItem.ts';
-import another from './another.ts';
+import postItem, { isNumber } from '@/api/postItem';
 
 
 export type Response = {
@@ -8,11 +7,7 @@ export type Response = {
 }
 
 export default async function double(value: number): Promise<Response> {
-  // const result = await postItem(value);
-  // const other = isNumber(value + 4);
-  // return { value: result, isNumber: other };
-
-  another();
-  return { value: 3, isNumber: true };
+  const result = await postItem(value);
+  const other = isNumber(value + 4);
+  return { value: result, isNumber: other };
 }
-double(3);

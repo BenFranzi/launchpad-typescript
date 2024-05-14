@@ -29,8 +29,9 @@
     /*\TEST CONDITIONS - REMOVE FOR REAL PROJECTS */
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts"],
+  "include": ["**/*"],
   "ts-node": {
+    "esm": true,
     "require": ["tsconfig-paths/register"]
   }
 }
