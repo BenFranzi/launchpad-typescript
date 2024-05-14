@@ -11,9 +11,6 @@ describe(solution, () => {
     postItemMock.mockReturnValue({  title: 'I\'m a mock value!' });
     countTodosMock.mockReturnValue(1000);
 
-    // import * as api from '@/api';
-    // or const spy = jest.spyOn(api, 'doRequest');
-
     const result: Response = await solution('I\'m a real value!');
     expect(result.todos.length).toBe(1);
     expect(result.todos).toMatchObject([
@@ -28,3 +25,10 @@ describe(solution, () => {
     );
   });
 });
+
+
+// spying on method
+// import * as api from '@/api';
+// or const spy = jest.spyOn(api, 'doRequest');
+
+// await jest.runOnlyPendingTimersAsync();

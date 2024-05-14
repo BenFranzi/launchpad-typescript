@@ -5,5 +5,6 @@ export default {
   fakeTimers: { enableGlobally: true },
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1'
-  }
+  },
+  testPathIgnorePatterns: ['__src']
 };
