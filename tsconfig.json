@@ -22,7 +22,7 @@
     "strict": false,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["src/*"]
     },
     /* TEST CONDITIONS - REMOVE FOR REAL PROJECTS */
     "noImplicitAny": false,
@@ -30,5 +30,7 @@
   },
   "exclude": ["node_modules"],
   "include": ["**/*.ts"],
-  "ts-node": { "swc": true }
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
 }
