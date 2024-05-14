@@ -11,3 +11,4 @@ export default async function double(value: number): Promise<Response> {
   const other = isNumber(value + 4);
   return { value: result, isNumber: other };
 }
+console.log('The current time is ', new Date());
