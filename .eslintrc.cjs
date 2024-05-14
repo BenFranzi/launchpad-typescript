@@ -24,7 +24,8 @@ module.exports = {
         "@typescript-eslint/no-unused-vars": "off",
         "prefer-arrow-callback": "off",
         "no-console": "warn",
-        "import/unambiguous": "off"
+        "import/unambiguous": "off",
+        "import/no-namespace": "off"
       }
     },
     //\TEST CONDITIONS - REMOVE FOR REAL PROJECTS
